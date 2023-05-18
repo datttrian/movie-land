@@ -9,7 +9,7 @@ function App() {
 
     const [movies, setMovies] = useState([]);
     const [searchTerm, setSearchTerm] = useState([]);
-    const searchMovies = async (title) => {
+    const searchMovies = async (title = "Batman") => {
         const response = await fetch(`${API_URL}&s=${title}`);
         //https://www.omdbapi.com?apikey=58324415&s=telugu
         const data = await response.json();
@@ -17,7 +17,7 @@ function App() {
     };
 
     useEffect(() => {
-        // searchMovies();
+        searchMovies();
     }, [searchTerm]);
 
     const handleKeyPress = (event) => {
